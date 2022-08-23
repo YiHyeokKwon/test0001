@@ -24,6 +24,12 @@ public class UriParser {
     }
     
     private void parse(){
+
+        if(!this.URI.startsWith("/")){
+            this.isValid = false;
+            return;
+        }
+
         // /articles/delete ? id=1
         String[] uriSplit = this.URI.split("\\?", 2);
         if(uriSplit.length == 2){
@@ -35,7 +41,10 @@ public class UriParser {
         
         // [], articles, delete
         String[] uriBodySplit = uriSplit[0].split("/");
-        
+        if(uriBodySplit.length != 3){
+            this.isValid = false;
+            return;
+        }
         this.controllerCode = uriBodySplit[1];
         this.target = uriBodySplit[2];
         
@@ -44,11 +53,14 @@ public class UriParser {
     }
 
     public String getControllerCode() {
+        return getControllerCode();
     }
 
     public String getTarget() {
+        return getTarget();
     }
 
     public Map<String, Object> getParameter() {
+        return getParameter();
     }
 }

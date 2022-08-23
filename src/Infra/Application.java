@@ -8,11 +8,15 @@ public class Application {
 
     private Scanner sc = Container.sc;
     private boolean isActive = true;
+    private String intputUri;
 
     public void run(){
         while(isActive){
             System.out.println("명령어 : ");
             String inputUri = sc.nextLine().trim();
+            if(intputUri.equals(".exite")){
+                System.out.println("어플리케이션을 종료 합니다.");
+            }
             Request request = new Request(inputUri);
             Controller controller = getController(request.getControllerCode());
             if(controller != null){
