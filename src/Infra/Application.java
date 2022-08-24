@@ -31,6 +31,8 @@ public class Application {
         switch (code){
             case "system":
                 return Container.systemController;
+            case "member":
+            case "":
             default:
                 return null;
         }
