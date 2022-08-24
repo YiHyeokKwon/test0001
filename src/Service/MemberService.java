@@ -12,7 +12,11 @@ public class MemberService {
     }
 
     public int saveMember(String loginID, String password, String name){
-        return 0;
+        return MemberRepository.saveMember(loginID, password, name);
+    }
+
+    public boolean isExistsByLoginID(String loginID){
+        return MemberRepository.isExistsByLoginID(loginID);
     }
 
 }

@@ -37,6 +37,11 @@ public class MemberController implements Controller {
         System.out.println("ID : ");
         String loginID = sc.nextLine().trim();
 
+        if(memberService.isExistsByLoginID(loginID)){
+            System.out.println("이미 존재하는 ID");
+            return;
+        }
+
         System.out.println("PW : ");
         String password = sc.nextLine().trim();
 
